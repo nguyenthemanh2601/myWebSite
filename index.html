@@ -44,6 +44,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- Vuejs -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>	
+	<!-- Lang file -->
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -57,26 +61,29 @@
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 			<div class="text-center">
 				<div class="author-img" style="background-image: url(images/about.jpg);"></div>
-				<h1 id="colorlib-logo"><a href="index.html">Nguyen The Manh</a></h1>
-				<span class="position"><a href="#">PHP Developer</a> in VietNam</span>
+				<button class="btn btn-hire" data-toggle="tooltip" :title="$t('langTitle')" style="outline: 0;margin-bottom: 10px;" @click="changeLang">
+					<span class="icon-globe2" aria-hidden="true">{{ $t("lang") }}</span>
+				</button>
+				<h1 id="colorlib-logo"><a href="index.html">{{ $t("about.fullname") }}</a></h1>
+				<span class="position"><a href="javascript:void(0)">{{ $t("about.position") }}</a> {{ $t("about.positionTitle") }}</span>
 			</div>
 			<nav id="colorlib-main-menu" role="navigation" class="navbar">
 				<div id="navbar" class="collapse">
 					<ul>
-						<li class="active"><a href="" data-nav-section="home">Home</a></li>
-						<li><a href="" data-nav-section="about">About</a></li>
-						<li><a href="" data-nav-section="services">Expertise</a></li>
-						<li><a href="" data-nav-section="skills">Skills</a></li>
-						<li><a href="" data-nav-section="education">Education</a></li>
-						<li><a href="" data-nav-section="experience">Work Experience</a></li>
-						<li><a href="" data-nav-section="contact" class="contact_session">Contact</a></li>
+						<li class="active"><a href="" data-nav-section="home">{{ $t("menu.home") }}</a></li>
+						<li><a href="" data-nav-section="about">{{ $t("menu.about") }}</a></li>
+						<li><a href="" data-nav-section="services">{{ $t("menu.expertise") }}</a></li>
+						<li><a href="" data-nav-section="skills">{{ $t("menu.skills") }}</a></li>
+						<li><a href="" data-nav-section="education">{{ $t("menu.education") }}</a></li>
+						<li><a href="" data-nav-section="experience">{{ $t("menu.experience") }}</a></li>
+						<li><a href="" data-nav-section="contact" class="contact_session">{{ $t("menu.contact") }}</a></li>
 					</ul>
 				</div>
 			</nav>
 
 			<div class="colorlib-footer">
 				<p><small>&copy; 
-Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i class="icon-heart" aria-hidden="true"></i>
+<!-- <!-- Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i class="icon-heart" aria-hidden="true"></i> --> -->
 				<ul>
 					<li><a class="color:blue" href="https://m.me/100006430680178" target="_blank"><i class="flaticon-006-messenger"></i></a></li>
 					<li><a class="color:blue" href="skype:the.manh@primelabo.com.vn"><i class="flaticon-014-skype"></i></a></li>
@@ -98,9 +105,9 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
 					   				<div class="slider-text-inner js-fullheight">
 					   					<div class="desc">
-						   					<h1>Hi! <br>I'm Manh</h1>
-						   					<h2>Nguyễn Thế Mạnh </h2>
-												<p><a class="btn btn-primary btn-learn" href="CV.pdf" target="_blank">Download CV <i class="icon-download4"></i></a></p>
+						   					<h1>{{ $t("hi") }} !<br>{{ $t("greeting") }} {{ $t("about.name") }}</h1>
+						   					<h2>{{ $t("about.fullname") }}</h2>
+												<p><a class="btn btn-primary btn-learn" href="$t('downloadLink')" target="_blank">{{ $t("download") }}<i class="icon-download4"></i></a></p>
 											</div>
 					   				</div>
 					   			</div>
@@ -114,9 +121,9 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
 					   				<div class="slider-text-inner">
 					   					<div class="desc">
-						   					<h1>I am <br>a Web deverloper</h1>
-												<h2>Nguyễn Thế Mạnh </h2>
-												<p><a class="btn btn-primary btn-learn" href="CV.pdf" target="_blank">Download CV <i class="icon-download4"></i></a></p>
+						   					<h1 v-html="$t('about.introduction')"></h1>
+												<h2>{{ $t("about.fullname") }} </h2>
+												<p><a class="btn btn-primary btn-learn" :href="$t('downloadLink')" target="_blank">{{ $t("download") }}<i class="icon-download4"></i></a></p>
 											</div>
 					   				</div>
 					   			</div>
@@ -134,10 +141,10 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
 								<div class="col-md-12">
 									<div class="about-desc">
-										<span class="heading-meta">About Me</span>
-										<h2 class="colorlib-heading">Who Am I?</h2>
-										<p><strong>Hi I'm Nguyen The Manh</strong> .</p>
-										<p>I graduated in Information Technology Engineer in 2018 at Saigon Technology University.</p>
+										<span class="heading-meta">{{ $t("aboutMe") }}</span>
+										<h2 class="colorlib-heading">{{ $t("howAmI") }}</h2>
+										<p><strong>{{ $t("hi") }} {{ $t("greeting") }} {{ $t("about.fullname") }}</strong> .</p>
+										<p>{{ $t("about.aboutIntroduction") }}</p>
 									</div>
 								</div>
 							</div>
@@ -145,25 +152,25 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
 									<div class="services color-2">
 										<span class="icon2"><i class="icon-globe-outline"></i></span>
-										<h3>Web Design</h3>
+										<h3>{{ $t("skills.webDesign") }}</h3>
 									</div>
 								</div>
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
 									<div class="services color-3">
 										<span class="icon2"><i class="icon-data"></i></span>
-										<h3>Back-end</h3>
+										<h3>{{ $t("skills.backEnd") }}</h3>
 									</div>
 								</div>
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
 									<div class="services color-4">
 										<span class="icon2"><i class="icon-phone3"></i></span>
-										<h3>Front-end</h3>
+										<h3>{{ $t("skills.frontEnd") }}</h3>
 									</div>
 								</div>
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
 									<div class="services color-1">
 										<span class="icon2"><i class="icon-bulb"></i></span>
-										<h3>Graphic Design</h3>
+										<h3>{{ $t("skills.graphicDesign") }}</h3>
 									</div>
 								</div>
 							</div>
@@ -181,69 +188,17 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 						</div>
 					</div>
 					<div class="row row-pt-md">
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-1">
+						<div class="col-md-4 text-center animate-box" v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].expertise.item)">
+							<div :class="'services color-'+(index+1)">
 								<span class="icon">
-									<img src="fonts/icon/svg/php.svg" style="width: 50px;">
+									<img :src="$i18n.messages[$i18n.locale].expertise.item[index].imageSrc" style="width: 50px;">
 								</span>
 								<div class="desc">
-									<h3>PHP</h3>
-									<p>5 years of learning and working experience with php 5 - 7</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-2">
-								<span class="icon">
-									<img src="fonts/icon/svg/laravel.svg" style="width: 50px;">
-								</span>
-								<div class="desc">
-									<h3>Laravel</h3>
-									<p>3 years of learning and working experience with laravel 4.2 - 5.8</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-3">
-								<span class="icon">
-									<img src="fonts/icon/svg/mysql.svg" style="width: 50px;">
-								</span>
-								<div class="desc">
-									<h3>MySql</h3>
-									<p>5 years of learning and working experience with MySql </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-4">
-								<span class="icon">
-									<img src="fonts/icon/svg/js.svg" style="width: 50px;">
-								</span>
-								<div class="desc">
-									<h3>Javascipt</h3>
-									<p>I have a lot of experience working with javscript with libraries like jquery, angularjs, vuejs, reacjs ...</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-5">
-								<span class="icon">
-									<img src="fonts/icon/svg/adobe.svg" style="width: 50px;">
-								</span>
-								<div class="desc">
-									<h3>Design</h3>
-									<p>I can use some adobe graphics software such as Photoshop, Illustrator, After Effect ...</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-6">
-								<span class="icon">
-									<img src="fonts/icon/svg/linux.svg" style="width: 50px;">
-								</span>
-								<div class="desc">
-									<h3>operating system</h3>
-									<p>Many years of experience working with linux operating systems such as ubuntu, kali, parrot, ...</p>
+									<h3>
+										{{ $i18n.messages[$i18n.locale].expertise.item[index].title }}
+									</h3>
+									<p>
+										{{ $i18n.messages[$i18n.locale].expertise.item[index].introduction }}</p>
 								</div>
 							</div>
 						</div>
@@ -254,80 +209,38 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Specialty</span>
-							<h2 class="colorlib-heading animate-box">My Skills</h2>
+							<span class="heading-meta">{{ $t("skills.specialty") }}</span>
+							<h2 class="colorlib-heading animate-box">{{ $t("skills.mySkill") }}</h2>
 						</div>
 					</div>
 					<div class="row">
 						<!-- <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 							<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
 						</div> -->
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>PHP</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="75"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span></span>
-								  	</div>
+						<template  v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].expertise.item)">
+							<div v-if="index%2 == 0" class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="progress-wrap">
+									<h3>{{ $i18n.messages[$i18n.locale].expertise.item[index].title }}</h3>
+									<div class="progress">
+									 	<div :class="'progress-bar color-'+(index+1)" role="progressbar" :aria-valuenow="$i18n.messages[$i18n.locale].expertise.item[index].level"
+									  	aria-valuemin="0" aria-valuemax="100" :style="'width:'+$i18n.messages[$i18n.locale].expertise.item[index].level+'%'">
+									    <span></span>
+									  	</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Laravel</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="60"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span></span>
-								  	</div>
+							<div v-else class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="progress-wrap">
+									<h3>{{ $i18n.messages[$i18n.locale].expertise.item[index].title }}</h3>
+									<div class="progress">
+									 	<div :class="'progress-bar color-'+(index+1)" role="progressbar" :aria-valuenow="$i18n.messages[$i18n.locale].expertise.item[index].level"
+									  	aria-valuemin="0" aria-valuemax="100" :style="'width:'+$i18n.messages[$i18n.locale].expertise.item[index].level+'%'">
+									    <span></span>
+									  	</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>MySql</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="85"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:65%">
-								    <span></span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Javascipt</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:60%">
-								    <span></span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Design</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:50%">
-								    <span></span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Linux</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:50%">
-								    <span></span>
-								  	</div>
-								</div>
-							</div>
-						</div>
+						</template>
 					</div>
 				</div>
 			</section>
@@ -548,7 +461,7 @@ Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i
 	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
-
+	<script type="text/javascript" src="js/lang.js"></script>
 	</body>
 </html>
 
