@@ -83,12 +83,12 @@
 
 			<div class="colorlib-footer">
 				<p><small>&copy; 
-<!-- <!-- Copyright <script>document.write(new Date().getFullYear());</script> The Manh <i class="icon-heart" aria-hidden="true"></i> --> -->
+					Copyright {{ copyright }} {{ $t("about.shortName") }} <i class="icon-heart" aria-hidden="true"></i>
 				<ul>
-					<li><a class="color:blue" href="https://m.me/100006430680178" target="_blank"><i class="flaticon-006-messenger"></i></a></li>
-					<li><a class="color:blue" href="skype:the.manh@primelabo.com.vn"><i class="flaticon-014-skype"></i></a></li>
-					<li><a class="color:blue" href="https://www.instagram.com/nthe_manh/" target="_blank"><i class="flaticon-005-instagram"></i></a></li>
-					<li><a class="color:blue" href="tel:+84966173668"><i class="flaticon-011-whatsapp"></i></a></li>
+					<li><a class="color:blue" :href="$t('about.messenger')" target="_blank"><i class="flaticon-006-messenger"></i></a></li>
+					<li><a class="color:blue" :href="'skype:'+ $t('about.skype')"><i class="flaticon-014-skype"></i></a></li>
+					<li><a class="color:blue" :href="$t('about.instagram')" target="_blank"><i class="flaticon-005-instagram"></i></a></li>
+					<li><a class="color:blue" :href="'tel:' + $t('about.tel')"><i class="flaticon-011-whatsapp"></i></a></li>
 				</ul>
 			</div>
 
@@ -183,8 +183,8 @@
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">What I do?</span>
-							<h2 class="colorlib-heading">Here are some of my expertise</h2>
+							<span class="heading-meta">{{ $t("expertise.quesiton") }}</span>
+							<h2 class="colorlib-heading">{{ $t("expertise.introduction") }}</h2>
 						</div>
 					</div>
 					<div class="row row-pt-md">
@@ -249,64 +249,42 @@
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Education</span>
-							<h2 class="colorlib-heading animate-box">Education
-								<span><br><h6>Saigon Technology University</h6></span></h2>
+							<span class="heading-meta">{{ $t("education.title") }}</span>
+							<h2 class="colorlib-heading animate-box">{{ $t("education.title") }}
+								<span><br><h6>{{ $t("education.school") }}</h6></span></h2>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 				         <div class="timeline-centered">
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
+							<template  v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].education.item)">
+					        	<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft" v-if="index%2==0">
+					        	   <div class="timeline-entry-inner">
 
-					               <div class="timeline-icon color-1">
-					                  <i class="">1</i>
-					               </div>
+					        	      <div :class="'timeline-icon color-'+(index+1)">
+					        	         <i class="">{{ index+1 }}</i>
+					        	      </div>
 
-					               <div class="timeline-label">
-					                  <h2><a href="#">Study introductory subjects</a> <span>2014-2015</span></h2>
-					                  <p>Learn general subjects and basic programming with the C ++ language.</p>
-					               </div>
-					            </div>
-					         </article>
+					        	      <div class="timeline-label">
+					        	         <h2><a href="#">{{ $i18n.messages[$i18n.locale].education.item[index].title }}</a> <span>{{ $i18n.messages[$i18n.locale].education.item[index].year }}</span></h2>
+					        	         <p>{{ $i18n.messages[$i18n.locale].education.item[index].introduction }}</p>
+					        	      </div>
+					        	   </div>
+								</article>
+					        	<article class="timeline-entry animate-box" data-animate-effect="fadeInRight" v-else>
+					        	   <div class="timeline-entry-inner">
 
+					        	      <div :class="'timeline-icon color-'+(index+1)">
+					        	         <i class="">{{ index+1 }}</i>
+					        	      </div>
 
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="">2</i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Advanced programming techniques</a> <span>2015-2016</span></h2>
-					                  <p>Learn advanced programming with c ++, C # languages. Learn the basics of database structure.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="">3</i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Mixed learning</a> <span>2016-2017</span></h2>
-					                  <p>Advanced learning about database structure. Familiar with web programming and programming with the Java language. Learn some more subjects about security and network security.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-4">
-					                  <i>4</i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Learning practice combined</a> <span>2017-2018</span></h2>
-					                  <p>Learn in depth about the web. Complete subject projects. Practicing at school. At the same time working at capgeminiVn.</p>
-					               </div>
-					            </div>
-					         </article>
+					        	      <div class="timeline-label">
+					        	         <h2><a href="#">{{ $i18n.messages[$i18n.locale].education.item[index].title }}</a> <span>{{ $i18n.messages[$i18n.locale].education.item[index].year }}</span></h2>
+					        	         <p>{{ $i18n.messages[$i18n.locale].education.item[index].introduction }}</p>
+					        	      </div>
+					        	   </div>
+								</article>
+							</template>
 
 					      </div>
 					   </div>
@@ -318,65 +296,49 @@
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Experience</span>
-							<h2 class="colorlib-heading animate-box">Work Experience</h2>
+							<span class="heading-meta">{{ $t("experience.title") }}</span>
+							<h2 class="colorlib-heading animate-box">{{ $t("experience.introduction") }}</h2>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 				         <div class="timeline-centered">
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-
-					               <div class="timeline-icon color-1">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-										<h2><span class="text-primary">SOFTWARE ENGINER</span><a href="#">(CapgeminiVN)</a> <span>06/2018-12/2018</span></h2>
-										<p style="font-size: 12px;font-weight: bold;">Working on ESkillMatrix project:</p>
-					                	<ul>
-											<li> Scale: Internal projects for all 43 branches of corporation</li>
-											<li> Desing, built API,built feature for member management, write unit test.</li>
-											<li> Techonogies: Php7, Laravel 5.4, Angularjs 1.5, Typescript, MySQL.</li>
-										</ul>
-					               </div>
-					            </div>
-					         </article>
-
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-										<h2><span class="text-primary">SOFTWARE ENGINER</span><a href="#">(Sprite +)</a> <span>02/2019-10/2019</span></h2>
-										<p style="font-size: 12px;font-weight: bold;">Working on “Umbilical cord blood management” project:</p>
-					                	<ul>
-											<li> Scale: Manage blood bank and umbilical cord for hospital.</li>
-											<li> Building the core, built API,built validation, write test tool, write screen code.</li>
-											<li> Techonogies: Php7, Angularjs 1.5, PostgreSQl, Perl.</li>
-											<li> OS: windows, linux.</li>
-										</ul>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-										<h2><span class="text-primary">SOFTWARE ENGINER</span><a href="#">(Primelabo)</a> <span>10/2019-now</span></h2>
-										<p style="font-size: 12px;font-weight: bold;">Working on “MediSystem Employment Management” project:</p>
-					                	<ul>
-											<li> Scale: Manage the work related to the company's working time.</li>
-											<li> Research documents, design and build websites on demand from Japanese customers.</li>
-											<li> Techonogies: Php5, Laravel4.2, Twig, Vuejs, Jquery, Bootstrap3, MariaDB, MySql.</li>
-											<li> OS: windows, linux.</li>
-										</ul>
-					            </div>
-					         </article>
+							<template  v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].experience.item)">
+								<article class="timeline-entry animate-box" v-if="index%2==0" data-animate-effect="fadeInLeft">
+									<div class="timeline-entry-inner">
+	
+									   <div :class="'timeline-icon color-'+(index+1)">
+										  <i class="icon-pen2"></i>
+									   </div>
+									   <div class="timeline-label">
+											<h2><span class="text-primary">{{ $i18n.messages[$i18n.locale].experience.item[index].position }}</span>
+												<a href="#">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a> 
+												<span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2>
+											<p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p>
+											<ul>
+												<li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</li>
+											</ul>
+									   </div>
+									</div>
+								 </article>
+								 <article class="timeline-entry animate-box" v-else data-animate-effect="fadeInRight">
+									 <div class="timeline-entry-inner">
+	 
+										<div :class="'timeline-icon color-'+(index+1)">
+										   <i class="icon-pen2"></i>
+										</div>
+										<div class="timeline-label">
+											 <h2><span class="text-primary">{{ $i18n.messages[$i18n.locale].experience.item[index].position }}</span>
+												 <a href="#">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a> 
+												 <span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2>
+											 <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p>
+											 <ul>
+												 <li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</li>
+											 </ul>
+										</div>
+									 </div>
+								  </article>
+							</template>
 					      </div>
 					   </div>
 				   </div>
@@ -387,27 +349,31 @@
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Get in Touch</span>
-							<h2 class="colorlib-heading">Contact</h2>
+							<span class="heading-meta">{{ $t("contact.title") }}</span>
+							<h2 class="colorlib-heading">{{ $t("contact.introduction") }}</h2>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
 							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-mail5"></i>
-								</div>
+								<a :href="'mailto:'+ $t('about.mail')">
+									<div class="colorlib-icon">
+										<i class="icon-mail5"></i>
+									</div>
+								</a>
 								<div class="colorlib-text">
-									<p><a href="mailto:nguyenthemanh26011996@gmail.com">nguyenthemanh26011996@gmail.com</a></p>
+									<p><a :href="'mailto:'+ $t('about.mail')">{{ $t("about.mail") }}</a></p>
 								</div>
 							</div>
 
 							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-phone"></i>
-								</div>
+								<a :href="'tel:' + $t('about.tel')">
+									<div class="colorlib-icon">
+										<i class="icon-phone"></i>
+									</div>
+								</a>
 								<div class="colorlib-text">
-									<p><a href="tel:+84966173668">+84966173668</a></p>
+									<p><a :href="'tel:' + $t('about.tel')">{{ $t("about.tel") }}</a></p>
 								</div>
 							</div>
 						</div>
@@ -415,19 +381,19 @@
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Name">
+											<input type="text" class="form-control" :placeholder="$t('contact.form.name')">
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Email">
+											<input type="text" class="form-control" :placeholder="$t('contact.form.mail')">
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Subject">
+											<input type="text" class="form-control" :placeholder="$t('contact.form.subject')">
 										</div>
 										<div class="form-group">
-											<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+											<textarea name="" id="message" cols="30" rows="7" class="form-control" :placeholder="$t('contact.form.message')"></textarea>
 										</div>
 										<div class="form-group">
-											<input type="button" class="btn btn-primary btn-send-message" value="Send Message">
+											<input type="button" class="btn btn-primary btn-send-message" :value="$t('contact.form.button')">
 										</div>
 								</div>
 								
