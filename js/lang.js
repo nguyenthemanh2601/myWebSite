@@ -338,6 +338,10 @@ new Vue({
     data:{
         lang:'en',
         copyright:'',
+        authorize:{
+            url:'https://github.com/login/oauth/authorize?',
+            client_id:'20bb1c4a338408adbca2'
+        }
     },
     created:function() {
         i18n.locale = this.lang;
@@ -346,7 +350,20 @@ new Vue({
     methods:{
         changeLang:function(){
             i18n.locale = (i18n.locale == this.lang )? 'vi' : this.lang;
-            console.log(i18n.locale )
+        },
+        login:function(){
+            let url = this.authorize.url +"client_id=" + this.authorize.client_id;
+            let w = 600;
+            let h = 600;
+            let l = (screen.width/2)-(w/2);
+            let t = (screen.height/2)-(h/2);
+            let wd = window.open(url,'_blank','toolbar=no, directories=no, status=no, menubar=no,location=yes,width='+w+', height='+h+', top='+t+', left='+l);
+            let currUrl = window.location.href;
+            let body = wd.document.getElementsByTagName('body');
+            $(body).append('<script type="text/javascript">window.onload = function(){console.log(window.location.href)};</script>');
+            // console.log($(scr).html());
+            // document.getElementsByTagName('body').appendChild(scr);
+            // wd.document.write('<script>var redirect_url = \'\';console.log(\'redirect_url\');</script>');
         }
     }
 }).$mount('#colorlib-page')
