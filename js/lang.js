@@ -339,6 +339,7 @@ new Vue({
         lang:'en',
         copyright:'',
         authorize:{
+            userInfoUrl:"https://github.com/user",
             accessUrl:'https://github.com/login/oauth/authorize?',
             accessTokenUrl:'https://github.com/login/oauth/access_token',
             client_id:'20bb1c4a338408adbca2',
@@ -358,7 +359,8 @@ new Vue({
             i18n.locale = (i18n.locale == this.lang )? 'vi' : this.lang;
         },
         login:function(){
-            let url = this.authorize.accessUrl +"client_id=" + this.authorize.client_id+'&allow_signup=false';
+            let redirect_uri = window.location.href;
+            let url = this.authorize.accessUrl +"client_id=" + this.authorize.client_id+'&allow_signup=false&redirect_uri='+redirect_uri;
             window.location.href = url;
         },
         decodeFile: function(code) {
@@ -366,17 +368,28 @@ new Vue({
         },
         getAccessToken:function(code) {
             let _self = this;
-            // let url = this.authorize.accessTokenUrl+'client_id=';
-            // url += this.authorize.client_id+'&client_secret=';
-            // url += this.authorize.client_secret+'&code='+code;
+            let redirect_uri = window.location.href;
             $.ajax({
                 url: this.authorize.accessTokenUrl,
                 type: 'POST',
                 data: {
                     client_id: _self.authorize.client_id,
                     client_secret: _self.authorize.client_secret,
-                    code: code
+                    code: code,
+                    redirect_uri:redirect_uri
                 },
+                success: function(res) {
+                    console.log(res );
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        },
+        getUserInfor:function (code) {
+            $.ajax({
+                url: this.authorize.accessUrl,
+                type: 'GET',
                 success: function(res) {
                     console.log(res );
                 },
