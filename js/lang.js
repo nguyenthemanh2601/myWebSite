@@ -378,15 +378,14 @@ new Vue({
                     code: code,
                     redirect_uri:redirect_uri
                 },
-                success: function(res) {
-                    console.log(res );
-                    let searchParams = new URLSearchParams(res);
-                    let accessToken = searchParams.get('access_token');
-                    return _self.getUserInfo(accessToken);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
+            })
+            .done(function(res) {
+                console.log(res );
+                let searchParams = new URLSearchParams(res);
+                let accessToken = searchParams.get('access_token');
+                return _self.getUserInfo(accessToken);
+            }).fail( function(err) {
+                console.log(err);
             });
         },
         getUserInfo:function (token) {
@@ -396,12 +395,11 @@ new Vue({
                 headers: {
                     'Authorization':'token '+token,
                 },
-                success: function(res) {
-                    console.log(res );
-                },
-                error: function(err) {
-                    console.log(err);
-                }
+            })
+            .done(function(res) {
+                console.log(res );
+            }).fail( function(err) {
+                console.log(err);
             });
         }
     }
