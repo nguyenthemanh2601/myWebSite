@@ -385,6 +385,8 @@ new Vue({
                 let accessToken = searchParams.get('access_token');
                 return _self.getUserInfo(accessToken);
             }).fail( function(err) {
+                let searchParams = new URLSearchParams(res);
+                let accessToken = searchParams.get('access_token'); 
                 console.log(err);
             });
         },
