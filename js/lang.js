@@ -351,7 +351,8 @@ new Vue({
         this.copyright = new Date().getFullYear() +'';
         let searchParams = new URLSearchParams(window.location.search);
         if(searchParams.has('code')){
-            this.getAccessToken(searchParams.get('code'))
+            this.getAccessToken(searchParams.get('code'));
+            this.getUserInfor();
         }
     },
     methods:{
