@@ -346,6 +346,11 @@ var app = new Vue({
             client_secret:'284a707bb4bd28006f28284d2075a02873e59612',
         }
     },
+    mounted() {
+      gapi.signin2.render('google-signin-button', {
+        onsuccess: this.onSignIn
+      })
+    },
     created:function() {
         i18n.locale = this.lang;
         this.copyright = new Date().getFullYear() +'';
