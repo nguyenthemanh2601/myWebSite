@@ -339,7 +339,7 @@ new Vue({
         lang:'en',
         copyright:'',
         authorize:{
-            userInfoUrl:"https://github.com/user",
+            userInfoUrl:"https://github.com/users",
             accessUrl:'https://github.com/login/oauth/authorize?',
             accessTokenUrl:'https://github.com/login/oauth/access_token',
             client_id:'20bb1c4a338408adbca2',
@@ -352,7 +352,6 @@ new Vue({
         let searchParams = new URLSearchParams(window.location.search);
         if(searchParams.has('code')){
             this.getAccessToken(searchParams.get('code'));
-            this.getUserInfor();
         }
     },
     methods:{
@@ -381,16 +380,22 @@ new Vue({
                 },
                 success: function(res) {
                     console.log(res );
+                    let searchParams = new URLSearchParams(res);
+                    let accessToken = searchParams.get('access_token');
+                    return _self.getUserInfo(accessToken);
                 },
                 error: function(err) {
                     console.log(err);
                 }
             });
         },
-        getUserInfor:function (code) {
+        getUserInfo:function (token) {
             $.ajax({
                 url: this.authorize.accessUrl,
                 type: 'GET',
+                headers: {
+                    'Authorization':'token '+token,
+                },
                 success: function(res) {
                     console.log(res );
                 },
