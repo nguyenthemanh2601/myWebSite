@@ -346,7 +346,7 @@ var app = new Vue({
             client_secret:'284a707bb4bd28006f28284d2075a02873e59612',
         },
         ggAuth:_ggAuth,
-        loginStatus:false
+        loginUser:''
     },
     mounted() {
       gapi.signin2.render('google-signin-button', {
@@ -413,13 +413,12 @@ var app = new Vue({
             });
         },
         onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            this.loginStatus = true;
+            this.loginUser = googleUser.getBasicProfile();
             $.notify({
                 // options
                 icon: 'glyphicon glyphicon-warning-sign',
                 title: 'Login success',
-                message: 'Wellcome '+profile.getName(),
+                message: 'Wellcome '+this.loginUser.getName(),
             },{
                 // settings
                 element: 'body',
@@ -449,17 +448,17 @@ var app = new Vue({
                 onClosed: null,
                 icon_type: 'class',
             });
-			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-			console.log('Name: ' + profile.getName());
-			console.log('Image URL: ' + profile.getImageUrl());
-			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			console.log('ID: ' + this.loginUser.getId()); // Do not send to your backend! Use an ID token instead.
+			console.log('Name: ' + this.loginUser.getName());
+			console.log('Image URL: ' + this.loginUser.getImageUrl());
+			console.log('Email: ' + this.loginUser.getEmail()); // This is null if the 'email' scope is not present.
         },
         signOut:function() {
             var auth2 = this.ggAuth.auth2.getAuthInstance();
             auth2.signOut().then(function () {
               console.log('User signed out.');
             });
-            this.loginStatus = true;
+            this.loginUser = '';
         }
     }
 }).$mount('#colorlib-page')
