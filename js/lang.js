@@ -367,6 +367,7 @@ var app = new Vue({
             i18n.locale = (i18n.locale == this.lang )? 'vi' : this.lang;
         },
         login:function(){
+            $('.g-signin2').click();return;
             let redirect_uri = window.location.href;
             let url = this.authorize.accessUrl +"client_id=" + this.authorize.client_id+'&allow_signup=false&redirect_uri='+redirect_uri;
             window.location.href = url;
