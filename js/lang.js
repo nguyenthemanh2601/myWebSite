@@ -344,7 +344,9 @@ var app = new Vue({
             accessTokenUrl:'https://github.com/login/oauth/access_token',
             client_id:'20bb1c4a338408adbca2',
             client_secret:'284a707bb4bd28006f28284d2075a02873e59612',
-        }
+        },
+        ggAuth:_ggAuth,
+        loginStatus:false
     },
     mounted() {
       gapi.signin2.render('google-signin-button', {
@@ -353,6 +355,7 @@ var app = new Vue({
     },
     created:function() {
         i18n.locale = this.lang;
+
         this.copyright = new Date().getFullYear() +'';
         let searchParams = new URLSearchParams(window.location.search);
         if(searchParams.has('code')){
@@ -410,11 +413,53 @@ var app = new Vue({
             });
         },
         onSignIn(googleUser) {
-			var profile = googleUser.getBasicProfile();
+            var profile = googleUser.getBasicProfile();
+            this.loginStatus = true;
+            $.notify({
+                // options
+                icon: 'glyphicon glyphicon-warning-sign',
+                title: 'Login success',
+                message: 'Wellcome '+profile.getName(),
+            },{
+                // settings
+                element: 'body',
+                position: null,
+                type: "info",
+                allow_dismiss: true,
+                newest_on_top: false,
+                showProgressbar: false,
+                placement: {
+                    from: "top",
+                    align: "center"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                timer: 1000,
+                url_target: '_blank',
+                mouse_over: null,
+                animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+                },
+                onShow: null,
+                onShown: null,
+                onClose: null,
+                onClosed: null,
+                icon_type: 'class',
+            });
 			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 			console.log('Name: ' + profile.getName());
 			console.log('Image URL: ' + profile.getImageUrl());
 			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		}
+        },
+        signOut:function() {
+            var auth2 = this.ggAuth.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });
+            this.loginStatus = true;
+        }
     }
 }).$mount('#colorlib-page')
