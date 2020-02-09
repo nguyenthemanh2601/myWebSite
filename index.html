@@ -61,8 +61,8 @@
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 			<div class="text-center">
-				<a href="javascript:void(0)"data-onsuccess="app.onSignIn"><div class="author-img" style="background-image: url(images/about.jpg);"></div></a>
-				<div class="g-signin2" id="google-signin-button" data-onsuccess="app.onSignIn"></div>
+				<div class="author-img" data-onsuccess="app.onSignIn" style="background-image: url(images/about.jpg);"></div>
+				<!-- <div class="g-signin2" id="google-signin-button" data-onsuccess="app.onSignIn"></div> -->
 				<button class="btn btn-hire" data-toggle="tooltip" :title="$t('langTitle')" style="outline: 0;margin-bottom: 10px;" @click="changeLang">
 					<span class="icon-globe2" aria-hidden="true">{{ $t("lang") }}</span>
 				</button>
