@@ -8,6 +8,7 @@ const messages = {
         downloadLink:"CV.pdf",
         aboutMe:"About me",
         howAmI:"Who Am I?",
+        noWebsite:'No website',
         about:{
             name:"Manh",
             shortName:'The Manh',
@@ -106,6 +107,7 @@ const messages = {
                     position:'SOFTWARE ENGINER',
                     company:'CapgeminiVN',
                     time:'06/2018-12/2018',
+                    url:'https://www.capgemini.com/',
                     project:'Working on ESkillMatrix project:',
                     content:[
                         'Scale: Internal projects for all 43 branches of corporation',
@@ -118,6 +120,7 @@ const messages = {
                     position:'SOFTWARE ENGINER',
                     company:'Sprite +',
                     time:'02/2019-10/2019',
+                    url:'',
                     project:'Working on “Umbilical cord blood management” project:',
                     content:[
                         'Scale: Manage blood bank and umbilical cord for hospital.',
@@ -130,6 +133,7 @@ const messages = {
                     position:'SOFTWARE ENGINER',
                     company:'Primelabo',
                     time:'10/2019-now',
+                    url:'http://primelabo.com.vn',
                     project:'Working on “MediSystem Employment Management” project:',
                     content:[
                         'Scale: Manage the work related to the company\'s working time.',
@@ -171,6 +175,7 @@ const messages = {
         downloadLink:"CV.pdf",
         aboutMe:"Về tôi",
         howAmI:"Tôi là ai?",
+        noWebsite:'Không có trang web nào',
         about:{
             name:"Mạnh",
             shortName:'Thế Mạnh',
@@ -268,6 +273,7 @@ const messages = {
                 {
                     position:'Kỹ sư phần mềm',
                     company:'CapgeminiVN',
+                    url:'https://www.capgemini.com/',
                     time:'06/2018-12/2018',
                     project:'Làm việc trong dự án ESkillMatrix:',
                     content:[
@@ -281,6 +287,7 @@ const messages = {
                     position:'Kỹ sư phần mềm',
                     company:'Sprite +',
                     time:'02/2019-10/2019',
+                    url:'',
                     project:'Làm việc trong dự án “Quản lý ngân hàng máu và cuống rốn” :',
                     content:[
                         'Quy mô: Quản lý ngân hàng máu và cuống rốn cho bệnh viện.',
@@ -292,6 +299,7 @@ const messages = {
                 {
                     position:'Kỹ sư phần mềm',
                     company:'Primelabo',
+                    url:'http://primelabo.com.vn',
                     time:'10/2019-now',
                     project:'Làm việc trong dự án “Hệ thống quản lý nhân sự (MediSystem)”:',
                     content:[
@@ -460,6 +468,6 @@ var app = new Vue({
               console.log('User signed out.');
             });
             this.loginUser = '';
-        }
+        },
     }
 }).$mount('#colorlib-page')
