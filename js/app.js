@@ -1,4 +1,3 @@
-const gh = new GitHub();
 var gist = gh.getGist(); // not a gist yet
   // Create a Vue instance with `i18n` option
   var app = new Vue({ 
