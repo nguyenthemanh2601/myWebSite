@@ -1,8 +1,8 @@
-var gist = gh.getGist(); // not a gist yet
-  // Create a Vue instance with `i18n` option
   var app = new Vue({ 
     i18n,
     data:{
+        api_key:'AIzaSyCNse-XkpinHLc19NVfVsU5pg6h-drpHJM',
+        client_id:'373033378664-3e1ao1hil9hj9fdbedo49861piqfpekq.apps.googleusercontent.com',
         lang:'en',
         copyright:'',
         authorize:{
@@ -16,11 +16,12 @@ var gist = gh.getGist(); // not a gist yet
         loginUser:''
     },
     mounted() {
-      gapi.signin2.render('google-signin-button', {
-        onsuccess: this.onSignIn
-      })
+        _ggAuth.signin2.render('google-signin-button', {
+            onsuccess: this.onSignIn
+        });
     },
     created:function() {
+        this.handleClientLoad();
         i18n.locale = this.lang;
 
         this.copyright = new Date().getFullYear() +'';
@@ -30,6 +31,66 @@ var gist = gh.getGist(); // not a gist yet
         }
     },
     methods:{
+        handleClientLoad:function () {
+            _self = this;
+            _ggDriveAuth.load('client:auth2', _self.driveInitClient);
+        },
+        driveInitClient:function () {
+            _ggDriveAuth.client.init({
+              apiKey: this.api_key,
+              clientId: this.client_id,
+              discoveryDocs: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
+              scope: 'https://www.googleapis.com/auth/drive.metadata.readonly'
+            }).then(function () {
+                // Listen for sign-in state changes.
+                _ggDriveAuth.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                // Handle the initial sign-in state.
+                updateSigninStatus(_ggDriveAuth.auth2.getAuthInstance().isSignedIn.get());
+                authorizeButton.onclick = handleAuthClick;
+                signoutButton.onclick = handleSignoutClick;
+            }, function(error) {
+                appendPre(JSON.stringify(error, null, 2));
+            });
+        },
+        updateSigninStatus:function (isSignedIn) {
+            if (isSignedIn) {
+                authorizeButton.style.display = 'none';
+                signoutButton.style.display = 'block';
+                listFiles();
+            } else {
+                authorizeButton.style.display = 'block';
+                signoutButton.style.display = 'none';
+            }
+        },
+        handleAuthClick:function (event) {
+            _ggDriveAuth.auth2.getAuthInstance().signIn();
+        },
+        handleSignoutClick:function (event) {
+            _ggDriveAuth.auth2.getAuthInstance().signOut();
+        },
+        appendPre: function (message) {
+            var pre = document.getElementById('content');
+            var textContent = document.createTextNode(message + '\n');
+            pre.appendChild(textContent);
+        },
+        listFiles: function () {
+            _ggDriveAuth.client.drive.files.list({
+                'pageSize': 10,
+                'fields': "nextPageToken, files(id, name)"
+            }).then(function(response) {
+                appendPre('Files:');
+                var files = response.result.files;
+                if (files && files.length > 0) {
+                    for (var i = 0; i < files.length; i++) {
+                      var file = files[i];
+                      appendPre(file.name + ' (' + file.id + ')');
+                    }
+                } else {
+                    appendPre('No files found.');
+                }
+            });
+        },
         changeLang:function(){
             i18n.locale = (i18n.locale == this.lang )? 'vi' : this.lang;
         },
