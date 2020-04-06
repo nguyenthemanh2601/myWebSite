@@ -1427,3 +1427,31 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
+
+.avt-img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-size: cover;
+}
+.g-signin2 > div {
+  margin: 0 auto;
+  background-color: #d43f3a;
+}
+.card-name {
+  margin: 0 auto;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+.card-mail {
+  margin: 0 auto;
+  font-size: small;
+  font-weight: lighter;
+  text-align: center;
+}

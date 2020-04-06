@@ -22,7 +22,7 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="/fonts/icon/flaticon.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
@@ -53,6 +53,21 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.4.1/lottie.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.bodymovin').each(function() {
+                var element = $(this);
+                var animation = bodymovin.loadAnimation({
+                    container: element[0],
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: element.data('icon')
+                });
+            });
+        });
+    </script>
 	<style>
 	::-webkit-scrollbar {
 	  width: 5px;
@@ -82,8 +97,7 @@
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 			<div class="text-center">
-				<a href="javascript:void(0)" @click="login"><div class="author-img" style="background-image: url(images/about.jpg);"></div></a>
-				<div class="g-signin2" style="display: none;" id="google-signin-button" data-onsuccess="app.onSignIn"></div>
+				<a href="javascript:void(0)" @click="clickAvt"><div class="author-img" style="background-image: url(images/about.jpg);"></div></a>
 				<button class="btn btn-hire" data-toggle="tooltip" :title="$t('langTitle')" style="outline: 0;margin-bottom: 10px;" @click="changeLang">
 					<span class="icon-globe2" aria-hidden="true">{{ $t("lang") }}</span>
 				</button>
@@ -432,7 +446,31 @@
 			</section>
 			<section class="colorlib-blog" data-section="blog">
 			</section>
+			<div id="loginModal" class="modal fade" role="dialog">
+				<div class="modal-dialog modal-sm">
 
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="avt-img" :style="'background-image: url('+ (loginUser!='' ? loginUser.avartar : 'images/about.jpg')+')'"></div>
+						</div>
+						<div class="card-name" v-html="loginUser.fullName"></div>
+						<div class="card-mail" v-html="loginUser.email"></div>
+						<div class="g-signin2" id="google-signin-button" data-onsuccess="app.onSignIn"></div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="bodymovin p-4" data-icon="./activity.json"></div>
+							</div>
+							<div class="col-md-4">
+								<div class="bodymovin p-4" data-icon="./../add/add.json"></div>
+							</div>
+							<div class="col-md-4">
+								<div class="bodymovin p-4" data-icon="./../add-cloud/add-cloud.json"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</div>
 	</div>
 	</div><!-- end:colorlib-page -->
