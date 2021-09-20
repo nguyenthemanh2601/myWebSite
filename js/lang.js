@@ -1,6 +1,6 @@
 const messages = {
     en: {
-        lang:"English",
+        lang:"Tiếng Việt",
         langTitle:"Change to Vietnamese",
         hi:'Hi ',
         greeting: 'I\'m',
@@ -167,7 +167,7 @@ const messages = {
         },
     },
     vi: {
-        lang:"Tiếng Việt",
+        lang:"English",
         langTitle:"Đổi sang Tiếng Anh",
         hi:'Xin chào! ',
         greeting: 'Tôi là ',
