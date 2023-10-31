@@ -21,6 +21,15 @@
         _ggAuth.signin2.render('google-signin-button', {
             onsuccess: this.onSignIn
         });
+    },
+    created:function() {
+        i18n.locale = this.lang;
+
+        this.copyright = new Date().getFullYear() +'';
+        let searchParams = new URLSearchParams(window.location.search);
+        if(searchParams.has('code')){
+            this.getAccessToken(searchParams.get('code'));
+        }
         document.head.querySelectorAll("[property*='title'][content]").forEach((e) => {
             e.content = i18n.t("about.fullname")
         })
@@ -42,15 +51,6 @@
         document.head.querySelectorAll("[name*='author'][content]").forEach((e) => {
             e.content = i18n.t("about.mail")
         })
-    },
-    created:function() {
-        i18n.locale = this.lang;
-
-        this.copyright = new Date().getFullYear() +'';
-        let searchParams = new URLSearchParams(window.location.search);
-        if(searchParams.has('code')){
-            this.getAccessToken(searchParams.get('code'));
-        }
     },
     methods:{
         handleClientLoad:function () {
