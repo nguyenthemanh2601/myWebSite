@@ -30,6 +30,27 @@
         if(searchParams.has('code')){
             this.getAccessToken(searchParams.get('code'));
         }
+        document.head.querySelectorAll("[property*='title'][content]").forEach((e) => {
+            e.content = i18n.t("about.fullname")
+        })
+        document.head.querySelectorAll("[name*='title'][content]").forEach((e) => {
+            e.content = i18n.t("about.fullname")
+        })
+        document.head.querySelectorAll("[property*='url'][content]").forEach((e) => {
+            e.content = location.origin
+        })
+        document.head.querySelectorAll("[property*='site_name'][content]").forEach((e) => {
+            e.content = location.origin
+        })
+        document.head.querySelectorAll("[property*='description'][content]").forEach((e) => {
+            e.content = i18n.t("about.position")
+        })
+        document.head.querySelectorAll("[name*='description'][content]").forEach((e) => {
+            e.content = i18n.t("about.position")
+        })
+        document.head.querySelectorAll("[name*='author'][content]").forEach((e) => {
+            e.content = i18n.t("about.mail")
+        })
     },
     methods:{
         handleClientLoad:function () {
