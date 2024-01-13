@@ -7,7 +7,7 @@ const messages = {
         download:"Download CV(en) ",
         downloadLink:"CV.pdf",
         aboutMe:"About me",
-        howAmI:"Who Am I?",
+        whoAmI:"Who Am I?",
         noWebsite:'No website',
         about:{
             name:"Manh",
@@ -39,13 +39,13 @@ const messages = {
                     title:'PHP',
                     level:'75', //percent(%)
                     imageSrc:'fonts/icon/svg/php.svg',
-                    introduction:'5 years of learning and working experience with php 5 - 7',
+                    introduction:'5,5 years of learning and working experience with php 5, 7, 8',
                 },
                 {
                     title:'Laravel',
                     level:'75', //percent(%)
                     imageSrc:'fonts/icon/svg/laravel.svg',
-                    introduction:'3 years of learning and working experience with laravel 4.2 - 5.8',
+                    introduction:`5 years of learning and working experience with laravel 4.2 to 10`,
                 },
                 {
                     title:'MySql',
@@ -69,7 +69,7 @@ const messages = {
                     title:'Operating system',
                     level:'50', //percent(%)
                     imageSrc:'fonts/icon/svg/linux.svg',
-                    introduction:'Many years experience with Windows, Linux operating systems such as ubuntu, kali, parrot, ...'
+                    introduction:'Many years experience with MacOS, Windows, Linux operating systems(ubuntu, kali, parrot), ...'
                 }
             ]
         },
@@ -108,12 +108,9 @@ const messages = {
                     company:'CapgeminiVN',
                     time:'06/2018-12/2018',
                     url:'https://www.capgemini.com/',
-                    project:'Working on ESkillMatrix project:',
-                    content:[
-                        'Scale: Internal projects for all 43 branches of corporation',
-                        'Desing, built API,built feature for member management, write unit test.',
-                        'Techonogies: Php7, Laravel 5.4, Angularjs 1.5, Typescript, MySQL.',
-                        'OS: Windows, linux.'
+                    content: [
+                        "Develop the Web Application based on PHP (Framework Laravel) & MySQL, JS (AngularJs), …",
+                        "Software development process using TDD, service-oriented architecture: microservice",
                     ]
                 },
                 {
@@ -121,12 +118,8 @@ const messages = {
                     company:'Sprite +',
                     time:'02/2019-10/2019',
                     url:'',
-                    project:'Working on “Umbilical cord blood management” project:',
                     content:[
-                        'Scale: Manage blood bank and umbilical cord for hospital.',
-                        'Building the core, built API,built validation, write test tool, write screen code.',
-                        'Techonogies: Php7, Angularjs 1.5, PostgreSQl, Perl.',
-                        'OS: Windows, linux.'
+                        'Develop the Web Application based on PHP & Postgree'
                     ]
                 },
                 {
@@ -134,16 +127,156 @@ const messages = {
                     company:'Primelabo',
                     time:'10/2019-now',
                     url:'http://primelabo.com.vn',
-                    project:'Working on “MediSystem Employment Management” project:',
                     content:[
-                        'Scale: Manage the work related to the company\'s working time.',
-                        'Research documents, design and build websites on demand from Japanese customers.',
-                        'Techonogies: Php5, Laravel4.2, Twig, Vuejs, Jquery, Bootstrap3, MariaDB, MySql.',
-                        'OS: Windows, linux.'
+                        'Develop the Web Application based on PHP (Framework Laravel) & Mysql), VueJS'
+                    ]
+                },
+                {
+                    position:'FULLSTACK, TECHNICAL LEAD',
+                    company:'Hachinet',
+                    time:'10/2019-July 2021',
+                    url:'https://hachinet.com',
+                    content:[
+                        'Develop the Web Application based on Fuelphp, Mysql'
+                    ]
+                },
+                {
+                    position:'FULLSTACK, TECHNICAL LEAD',
+                    company:'NTQ Solution',
+                    time:'August 2021 - now',
+                    url:'https://ntq.com.vn',
+                    content:[
+                        'Develop the Booking Application based on PHP, Laravel , Mysql,'
                     ]
                 },
 
             ],
+        },
+        activities: {
+            title:'Activities',
+            introduction:'Activities',
+            items: 
+            [
+                {
+                    title: "Web application EskillMatrix",
+                    time: "Jun 2018 - Dec 2018",
+                    contents: [
+                        "POSITION: PHP Developer",
+                        "Customer: product",
+                        "Description: Skills management project according to the Skills Matrix",
+                        "Team size: 6",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development - Optimize code",
+                        "- Technologies: Laravel, Mysql, Angularjs,Typescript,  PhpUnit",
+                    ]
+                },
+                {
+                    title: "Web application MediSystem",
+                    time: "Oct 2019 - Nov 2020",
+                    contents: [
+                        "POSITION: FULLSTACK Developer ",
+                        "Customer: Japanese",
+                        "Description: Manage the work related to the company's working time",
+                        "Team size: 6",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Mysql, Jquery, Vuejs, Twig, PhpUnit",
+                    ]
+                },
+                {
+                    title: "Web application PrimeDX",
+                    time: "Oct 2020 - Nov 2020",
+                    contents: [
+                        "POSITION: FULLSTACK Developer ",
+                        "Customer: Japanese",
+                        "Description: Project on recruiting IT personnel",
+                        "Team size: 4",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Mysql, Jquery, VueJS, Vuex, Redis",
+                    ]
+                },
+                {
+                    title: "Web application Builpo",
+                    time: "Dec 2020 – July 2021",
+                    contents: [
+                        "POSITION: Fullstack Developer, Technical lead",
+                        "Customer: Japanese",
+                        "Description: Recruiting personnel for the building maintenance industry",
+                        "Team size: 3",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP7, Fuelphp, MySql, Imagemagic, Bootstrap ",
+                    ]
+                },
+                {
+                    title: "Web application Hachinet Accountant",
+                    time: "Dec 2020 – July 2021",
+                    contents: [
+                        "POSITION: Fullstack Developer, Technical lead",
+                        "Customer: Product",
+                        "Description: Project for internal human resource management",
+                        "Team size: 4",
+                        "My responsibilities:",
+                        "- Business analysis and team leadership",
+                        "- Development basic structural design",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Jquey, Redis, MySQL",
+                    ]
+                },
+                {
+                    title: "Booking application Repitte",
+                    time: "August 2021 – now",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Booking project in LINE, web and third partner",
+                        "Team size: 25",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP, Laravel, MySql, RDS, Redis, Docker...",
+                        "- API: Google Calendar, Zoom, Line, RemoteLock, Salonconnect...",
+                    ]
+                },
+                {
+                    title: "Booking application Repitte Global",
+                    time: "June 2023 – Sep -2023",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Booking project in LINE, web and third partner",
+                        "Team size: 25",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP, Laravel, Vue3, MySql, RDS, Redis, Docker...",
+                        "- API: Whatsapp, Stripe",
+                    ]
+                },
+                {
+                    title: "Benjamin Cloud",
+                    time: "June 2023 – Sep -2023",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Support other teams to fix errors related after update from vue2 to vue3",
+                        "Team size: 10",
+                        "My responsibilities:",
+                        "- Migrate Vue2 to Vue3 library ",
+                        "- Technologies: VueJs, Docker",
+                    ]
+                },
+            ]
         },
         contact:{
             title:'Contact',
@@ -174,7 +307,7 @@ const messages = {
         download:"Tải xuống CV(vi) ",
         downloadLink:"CV.pdf",
         aboutMe:"Về tôi",
-        howAmI:"Tôi là ai?",
+        whoAmI:"Tôi là ai?",
         noWebsite:'Không có trang web nào',
         about:{
             name:"Mạnh",
@@ -206,13 +339,13 @@ const messages = {
                     title:'PHP',
                     level:'75', //phần trăm(%)
                     imageSrc:'fonts/icon/svg/php.svg',
-                    introduction:'5 năm kinh nghiệm học tập và làm việc với PHP 5 - 7',
+                    introduction:'5,5 năm kinh nghiệm học tập và làm việc với PHP 5, 7, 8',
                 },
                 {
                     title:'Laravel',
                     level:'75', //phần trăm(%)
                     imageSrc:'fonts/icon/svg/laravel.svg',
-                    introduction:'3 năm kinh nghiệm học tập và làm việc với laravel 4.2 - 5.8',
+                    introduction:'5 năm kinh nghiệm học tập và làm việc với laravel 4.2 đến 10',
                 },
                 {
                     title:'MySql',
@@ -236,7 +369,7 @@ const messages = {
                     title:'Hệ điều hành',
                     level:'50', //phần trăm(%)
                     imageSrc:'fonts/icon/svg/linux.svg',
-                    introduction:'Nhiều năm kinh nghiệm với hệ điều hành Windows, Linux như ubuntu, kali, parrot, ...',
+                    introduction:'Nhiều năm kinh nghiệm với hệ điều hành MacOS, Windows, Linux(ubuntu, kali, parrot), ...',
                 }
             ]
         },
@@ -311,6 +444,131 @@ const messages = {
                 },
 
             ],
+        },
+        activities: {
+            title:'Activities',
+            items: 
+            [
+                {
+                    title: "Web application EskillMatrix",
+                    time: "Jun 2018 - Dec 2018",
+                    contents: [
+                        "POSITION: PHP Developer",
+                        "Customer: product",
+                        "Description: Skills management project according to the Skills Matrix",
+                        "Team size: 6",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development - Optimize code",
+                        "- Technologies: Laravel, Mysql, Angularjs,Typescript,  PhpUnit",
+                    ]
+                },
+                {
+                    title: "Web application MediSystem",
+                    time: "Oct 2019 - Nov 2020",
+                    contents: [
+                        "POSITION: FULLSTACK Developer ",
+                        "Customer: Japanese",
+                        "Description: Manage the work related to the company's working time",
+                        "Team size: 6",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Mysql, Jquery, Vuejs, Twig, PhpUnit",
+                    ]
+                },
+                {
+                    title: "Web application PrimeDX",
+                    time: "Oct 2020 - Nov 2020",
+                    contents: [
+                        "POSITION: FULLSTACK Developer ",
+                        "Customer: Japanese",
+                        "Description: Project on recruiting IT personnel",
+                        "Team size: 4",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Mysql, Jquery, VueJS, Vuex, Redis",
+                    ]
+                },
+                {
+                    title: "Web application Builpo",
+                    time: "Dec 2020 – July 2021",
+                    contents: [
+                        "POSITION: Fullstack Developer, Technical lead",
+                        "Customer: Japanese",
+                        "Description: Recruiting personnel for the building maintenance industry",
+                        "Team size: 3",
+                        "My responsibilities:",
+                        "- Analysis and design database",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP7, Fuelphp, MySql, Imagemagic, Bootstrap ",
+                    ]
+                },
+                {
+                    title: "Web application Hachinet Accountant",
+                    time: "Dec 2020 – July 2021",
+                    contents: [
+                        "POSITION: Fullstack Developer, Technical lead",
+                        "Customer: Product",
+                        "Description: Project for internal human resource management",
+                        "Team size: 4",
+                        "My responsibilities:",
+                        "- Business analysis and team leadership",
+                        "- Development basic structural design",
+                        "- Optimize code - Review code",
+                        "- Technologies: Laravel, Jquey, Redis, MySQL",
+                    ]
+                },
+                {
+                    title: "Booking application Repitte",
+                    time: "August 2021 – now",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Booking project in LINE, web and third partner",
+                        "Team size: 25",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP, Laravel, MySql, RDS, Redis, Docker...",
+                        "- API: Google Calendar, Zoom, Line, RemoteLock, Salonconnect...",
+                    ]
+                },
+                {
+                    title: "Booking application Repitte Global",
+                    time: "June 2023 – Sep -2023",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Booking project in LINE, web and third partner",
+                        "Team size: 25",
+                        "My responsibilities:",
+                        "- Analysis and development",
+                        "- Development Frontend and Backend",
+                        "- Optimize code - Review code",
+                        "- Technologies: PHP, Laravel, Vue3, MySql, RDS, Redis, Docker...",
+                        "- API: Whatsapp, Stripe",
+                    ]
+                },
+                {
+                    title: "Benjamin Cloud",
+                    time: "June 2023 – Sep -2023",
+                    contents: [
+                        "POSITION: Fullstack Developer",
+                        "Customer: Japanese",
+                        "Description: Support other teams to fix errors related after update from vue2 to vue3",
+                        "Team size: 10",
+                        "My responsibilities:",
+                        "- Migrate Vue2 to Vue3 library ",
+                        "- Technologies: VueJs, Docker",
+                    ]
+                },
+            ]
         },
         contact:{
             title:'Liên hệ với tôi',

@@ -71,6 +71,16 @@
         });
     </script>
 	<style>
+	.m-0 {
+		margin-top: 0;
+		margin-bottom: 0 !important;
+	}
+	.ps-2 {
+		padding-left: 15px;
+	}
+	.timeline-label h2 {
+		margin-bottom: 10px !important;
+	}
 	::-webkit-scrollbar {
 	  width: 5px;
 	}
@@ -181,19 +191,13 @@
 								<div class="col-md-12">
 									<div class="about-desc">
 										<span class="heading-meta">{{ $t("aboutMe") }}</span>
-										<h2 class="colorlib-heading">{{ $t("howAmI") }}</h2>
+										<h2 class="colorlib-heading">{{ $t("whoAmI") }}</h2>
 										<p><strong>{{ $t("hi") }} {{ $t("greeting") }} {{ $t("about.fullname") }}</strong> .</p>
 										<p>{{ $t("about.aboutIntroduction") }}</p>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-									<div class="services color-2">
-										<span class="icon2"><i class="icon-globe-outline"></i></span>
-										<h3>{{ $t("skills.webDesign") }}</h3>
-									</div>
-								</div>
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
 									<div class="services color-3">
 										<span class="icon2"><i class="icon-data"></i></span>
@@ -204,6 +208,12 @@
 									<div class="services color-4">
 										<span class="icon2"><i class="icon-phone3"></i></span>
 										<h3>{{ $t("skills.frontEnd") }}</h3>
+									</div>
+								</div>
+								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+									<div class="services color-2">
+										<span class="icon2"><i class="icon-globe-outline"></i></span>
+										<h3>{{ $t("skills.webDesign") }}</h3>
 									</div>
 								</div>
 								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
@@ -341,7 +351,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-				         <div class="timeline-centered">
+							<div class="timeline-centered">
 							<template  v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].experience.item)">
 								<article class="timeline-entry animate-box" v-if="index%2==0" data-animate-effect="fadeInLeft">
 									<div class="timeline-entry-inner">
@@ -355,10 +365,8 @@
 												 target="_blank" :href="$i18n.messages[$i18n.locale].experience.item[index].url">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a> 
 												<a v-else href="javascript:void(0)" data-toggle="tooltip" data-placement="right" :title="$t('noWebsite')">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a> 
 												<span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2>
-											<p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p>
-											<ul>
-												<li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</li>
-											</ul>
+											<!-- <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p> -->
+												<p class="m-0 ps-2" style="margin-top: 0;" v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</p>
 									   </div>
 									</div>
 								 </article>
@@ -373,12 +381,9 @@
 												<a v-if="$i18n.messages[$i18n.locale].experience.item[index].url != ''" 
 												 target="_blank" :href="$i18n.messages[$i18n.locale].experience.item[index].url">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a>
 												<a v-else href="javascript:void(0)" data-toggle="tooltip" data-placement="right" :title="$t('noWebsite')">({{ $i18n.messages[$i18n.locale].experience.item[index].company }})</a> 
-												<span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2> 
-												 <span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2>
-											 <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p>
-											 <ul>
-												 <li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</li>
-											 </ul>
+												<span>{{ $i18n.messages[$i18n.locale].experience.item[index].time }}</span></h2>
+											 <!-- <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].experience.item[index].project }}</p> -->
+												<p class="m-0 ps-2" style="margin-top: 0;" v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].experience.item[index].content)"> {{ $i18n.messages[$i18n.locale].experience.item[index].content[i] }}</p>
 										</div>
 									 </div>
 								  </article>
@@ -387,7 +392,59 @@
 					   </div>
 				   </div>
 				</div>
-			</section>		
+			</section>
+			<section class="colorlib-experience" data-section="activities">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<!-- <span class="heading-meta">{{ $t("activities.title") }}</span> -->
+							<h2 class="colorlib-heading animate-box">{{ $t("activities.title") }}</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="timeline-centered">
+							<template v-for="(value, index) in Object.keys($i18n.messages[$i18n.locale].activities.items)">
+								<article class="timeline-entry animate-box" v-if="index%2==0" data-animate-effect="fadeInLeft">
+									<div class="timeline-entry-inner">
+										<div :class="'timeline-icon color-'+((index%5)+1)">
+											<i class="icon-pen2"></i>
+										</div>
+										<div class="timeline-label">
+											<h2>
+												<span class="text-primary">{{ $i18n.messages[$i18n.locale].activities.items[index].title }}</span>
+												<span>{{ $i18n.messages[$i18n.locale].activities.items[index].time }}</span>
+											</h2>
+											<!-- <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].activities.items[index].title }}</p> -->
+											<ul>
+												<li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].activities.items[index].contents)"> {{ $i18n.messages[$i18n.locale].activities.items[index].contents[i] }}</li>
+											</ul>
+										</div>
+									</div>
+								</article>
+								<article class="timeline-entry animate-box" v-else data-animate-effect="fadeInRight">
+									<div class="timeline-entry-inner">
+										<div :class="'timeline-icon color-'+((index%5)+1)">
+											<i class="icon-pen2"></i>
+										</div>
+										<div class="timeline-label">
+											<h2>
+												<span class="text-primary">{{ $i18n.messages[$i18n.locale].activities.items[index].title }}</span>
+												<span>{{ $i18n.messages[$i18n.locale].activities.items[index].time }}</span>
+											</h2>
+											<!-- <p style="font-size: 12px;font-weight: bold;">{{ $i18n.messages[$i18n.locale].activities.items[index].title }}</p> -->
+											<ul>
+												<li v-for="(v, i) in Object.keys($i18n.messages[$i18n.locale].activities.items[index].contents)"> {{ $i18n.messages[$i18n.locale].activities.items[index].contents[i] }}</li>
+											</ul>
+										</div>
+									 </div>
+								</article>
+							</template>
+					      </div>
+					   </div>
+				   </div>
+				</div>
+			</section>
 
 			<section class="colorlib-contact" data-section="contact">
 				<div class="colorlib-narrow-content">
